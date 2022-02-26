@@ -21,7 +21,11 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "eslint:recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:jest/recommended",
+      "plugin:testing-library/react"
     ]
   },
   "browserslist": {
