@@ -16,6 +16,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Validate code formatting
+        run: npm run format:check
+
       - name: Run the tests
         run: npm test
 
