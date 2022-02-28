@@ -6,11 +6,24 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-test("renders hello world", () => {
-  render(<App />);
-  const helloElement = screen.getByText(/hello world!/i);
+test("renders a random advice", async () => {
+  jest
+    .spyOn(global, "fetch")
+    .mockName("fetch")
+    .mockImplementationOnce(() =>
+      Promise.resolve({
+        json: jest.fn().mockResolvedValueOnce({
+          slip: {
+            advice: "any_random_advice",
+          }
+        }),
+      })
+    );
 
-  expect(helloElement).toBeInTheDocument();
+  render(<App />);
+  const adviceElement = await screen.findByText(/^any_random_advice$/);
+
+  expect(adviceElement).toBeInTheDocument();
 });
 
 test("calls advice slip API for a random advice", () => {
