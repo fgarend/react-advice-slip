@@ -15,7 +15,7 @@ function App() {
     fetchRandomAdvice();
   }, [setAdvice]);
 
-  return <div className="App">{advice}</div>;
+  return <main className="App">{advice}</main>;
 }
 
 export default App;
