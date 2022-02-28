@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 
 import App from "./App";
 
@@ -38,10 +38,10 @@ test("random advice blockquote has a cite with advice slip endpoint by ID", asyn
   expect(adviceElement.cite).toBe("https://api.adviceslip.com/advice/123");
 });
 
-test("calls advice slip API for a random advice", () => {
+test("calls advice slip API for a random advice", async () => {
   const fetchSpy = mockFetchRandomAdvice();
 
   render(<App />);
 
-  expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice");
+  await waitFor(() => expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice"));
 });
