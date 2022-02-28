@@ -15,7 +15,11 @@ function App() {
     fetchRandomAdvice();
   }, [setAdvice]);
 
-  return <main className="App">{advice}</main>;
+  return (
+    <main className="App">
+      <blockquote>{advice}</blockquote>
+    </main>
+  );
 }
 
 export default App;

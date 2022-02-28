@@ -19,13 +19,13 @@ function mockFetchRandomAdvice(advice = "any_random_advice") {
   return jest.spyOn(global, "fetch").mockName("fetch").mockResolvedValueOnce(response);
 }
 
-test("renders a random advice", async () => {
+test("renders a random advice blockquote", async () => {
   mockFetchRandomAdvice("a_random_advice");
 
   render(<App />);
   const adviceElement = await screen.findByText(/^a_random_advice$/);
 
-  expect(adviceElement).toBeInTheDocument();
+  expect(adviceElement.nodeName).toBe("BLOCKQUOTE");
 });
 
 test("calls advice slip API for a random advice", () => {
