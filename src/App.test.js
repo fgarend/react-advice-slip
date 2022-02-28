@@ -7,16 +7,18 @@ beforeEach(() => {
 });
 
 function mockFetchRandomAdvice(advice = "any_random_advice") {
+  const jsonResponse = {
+    slip: {
+      advice,
+    },
+  };
+
   return jest
     .spyOn(global, "fetch")
     .mockName("fetch")
     .mockImplementationOnce(() =>
       Promise.resolve({
-        json: jest.fn().mockResolvedValueOnce({
-          slip: {
-            advice,
-          },
-        }),
+        json: jest.fn().mockName("response.json()").mockResolvedValueOnce(jsonResponse),
       })
     );
 }
