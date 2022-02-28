@@ -3,21 +3,21 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [advice, setAdvice] = useState("");
+  const [slip, setSlip] = useState({});
 
   useEffect(() => {
     async function fetchRandomAdvice() {
       const response = await fetch("https://api.adviceslip.com/advice");
       const jsonResponse = await response.json();
-      setAdvice(jsonResponse.slip.advice);
+      setSlip(jsonResponse.slip);
     }
 
     fetchRandomAdvice();
-  }, [setAdvice]);
+  }, [setSlip]);
 
   return (
     <main className="App">
-      <blockquote>{advice}</blockquote>
+      <blockquote cite={`https://api.adviceslip.com/advice/${slip.id}`}>{slip.advice}</blockquote>
     </main>
   );
 }

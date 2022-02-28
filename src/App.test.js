@@ -6,9 +6,10 @@ beforeEach(() => {
   jest.clearAllMocks();
 });
 
-function mockFetchRandomAdvice(advice = "any_random_advice") {
+function mockFetchRandomAdvice({ advice = "any_random_advice", id = "any_id" } = {}) {
   const jsonResponse = {
     slip: {
+      id,
       advice,
     },
   };
@@ -20,12 +21,21 @@ function mockFetchRandomAdvice(advice = "any_random_advice") {
 }
 
 test("renders a random advice blockquote", async () => {
-  mockFetchRandomAdvice("a_random_advice");
+  mockFetchRandomAdvice({ advice: "a_random_advice" });
 
   render(<App />);
   const adviceElement = await screen.findByText(/^a_random_advice$/);
 
   expect(adviceElement.nodeName).toBe("BLOCKQUOTE");
+});
+
+test("random advice blockquote has a cite with advice slip endpoint by ID", async () => {
+  mockFetchRandomAdvice({ id: "123" });
+
+  render(<App />);
+  const adviceElement = await screen.findByText(/^any_random_advice$/);
+
+  expect(adviceElement.cite).toBe("https://api.adviceslip.com/advice/123");
 });
 
 test("calls advice slip API for a random advice", () => {
