@@ -12,15 +12,11 @@ function mockFetchRandomAdvice(advice = "any_random_advice") {
       advice,
     },
   };
+  const response = {
+    json: jest.fn().mockName("response.json()").mockResolvedValueOnce(jsonResponse),
+  };
 
-  return jest
-    .spyOn(global, "fetch")
-    .mockName("fetch")
-    .mockImplementationOnce(() =>
-      Promise.resolve({
-        json: jest.fn().mockName("response.json()").mockResolvedValueOnce(jsonResponse),
-      })
-    );
+  return jest.spyOn(global, "fetch").mockName("fetch").mockResolvedValueOnce(response);
 }
 
 test("renders a random advice", async () => {
