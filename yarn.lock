@@ -1148,6 +1148,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/dancing-script@^4.5.4":
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/@fontsource/dancing-script/-/dancing-script-4.5.4.tgz#15f21a64ac9e32c57b5baa23c290188b939230bf"
+  integrity sha512-7TfUvCYVCGbVhNzpYS1fJzuQPR0HmgRvE4ZWLxji94P078Sp4wGfQ/w1DpSruWw0Zdt75VvAXHfcxM+P1x3nhw==
+
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.5"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.9.5.tgz#2cbaf9a89460da24b5ca6531b8bbfc23e1df50c7"
