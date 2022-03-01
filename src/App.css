@@ -6,3 +6,10 @@
   height: 100vh;
   width: 100vw;
 }
+
+.App blockquote {
+  font-size: 2rem;
+  font-weight: 700;
+
+  padding: 2rem;
+}
