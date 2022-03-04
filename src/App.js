@@ -16,9 +16,11 @@ function App() {
   }, [setSlip]);
 
   return (
-    <main className="App">
-      <blockquote cite={`https://api.adviceslip.com/advice/${slip.id}`}>{slip.advice}</blockquote>
-    </main>
+    <div className="App">
+      <main>
+        <blockquote cite={`https://api.adviceslip.com/advice/${slip.id}`}>{slip.advice}</blockquote>
+      </main>
+    </div>
   );
 }
 
