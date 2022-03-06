@@ -106,25 +106,25 @@ describe("App footer", () => {
     });
   });
 
-  test("renders a link to LinkedIn", async () => {
+  test("renders a LinkedIn link with href to my profile", async () => {
     mockFetchRandomAdvice();
 
     render(<App />);
 
     await waitFor(() => {
       const linkElement = screen.queryByRole("link", { name: /^LinkedIn$/ });
-      expect(linkElement).toBeInTheDocument();
+      expect(linkElement.href).toBe("https://www.linkedin.com/in/felipegabrielarend/");
     });
   });
 
-  test("renders a link to GitHub", async () => {
+  test("renders a GitHub link to my repository", async () => {
     mockFetchRandomAdvice();
 
     render(<App />);
 
     await waitFor(() => {
       const linkElement = screen.queryByRole("link", { name: /^GitHub$/ });
-      expect(linkElement).toBeInTheDocument();
+      expect(linkElement.href).toBe("https://github.com/FrameForce/react-advice-slip");
     });
   });
 
@@ -146,7 +146,7 @@ describe("App footer", () => {
 
     await waitFor(() => {
       const linkElement = screen.queryByRole("link", { name: /^Advice Slip JSON API$/ });
-      expect(linkElement).toBeInTheDocument();
+      expect(linkElement.href).toBe("https://api.adviceslip.com/");
     });
   });
 });

@@ -36,7 +36,7 @@ function App() {
             </a>
           </p>
           <p>
-            <a href="https://github.com/FrameForce" target="_blank" rel="noreferrer">
+            <a href="https://github.com/FrameForce/react-advice-slip" target="_blank" rel="noreferrer">
               GitHub
             </a>
           </p>
