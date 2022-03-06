@@ -20,37 +20,100 @@ function mockFetchRandomAdvice({ advice = "any_random_advice", id = "any_id" } =
   return jest.spyOn(global, "fetch").mockName("fetch").mockResolvedValueOnce(response);
 }
 
-test("renders an advice slip header", () => {
-  mockFetchRandomAdvice();
+describe("App header", () => {
+  test("renders an advice slip header", async () => {
+    mockFetchRandomAdvice();
 
-  render(<App />);
-  const headerElement = screen.queryByRole("heading", { level: 1, name: /^Advice Slip$/ });
+    render(<App />);
 
-  expect(headerElement).toBeInTheDocument();
+    await waitFor(() => {
+      const headerElement = screen.queryByRole("heading", { level: 1, name: /^Advice Slip$/ });
+      expect(headerElement).toBeInTheDocument();
+    });
+  });
 });
 
-test("renders a random advice blockquote", async () => {
-  mockFetchRandomAdvice({ advice: "a_random_advice" });
+describe("App main", () => {
+  test("renders a random advice", async () => {
+    mockFetchRandomAdvice({ advice: "a_random_advice" });
 
-  render(<App />);
-  const adviceElement = await screen.findByText(/^a_random_advice$/);
+    render(<App />);
+    const adviceElement = await screen.findByText(/^a_random_advice$/);
 
-  expect(adviceElement.nodeName).toBe("BLOCKQUOTE");
+    expect(adviceElement).toBeInTheDocument();
+  });
+
+  test("renders a random advice as blockquote", async () => {
+    mockFetchRandomAdvice({ advice: "a_random_advice" });
+
+    render(<App />);
+    const adviceElement = await screen.findByText(/^a_random_advice$/);
+
+    expect(adviceElement.nodeName).toBe("BLOCKQUOTE");
+  });
+
+  test("random advice blockquote has a cite with advice slip endpoint by ID", async () => {
+    mockFetchRandomAdvice({ id: "123" });
+
+    render(<App />);
+    const adviceElement = await screen.findByText(/^any_random_advice$/);
+
+    expect(adviceElement.cite).toBe("https://api.adviceslip.com/advice/123");
+  });
+
+  test("calls advice slip API for a random advice", async () => {
+    const fetchSpy = mockFetchRandomAdvice();
+
+    render(<App />);
+
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice");
+    });
+  });
 });
 
-test("random advice blockquote has a cite with advice slip endpoint by ID", async () => {
-  mockFetchRandomAdvice({ id: "123" });
+describe("App footer", () => {
+  test("renders developed by", async () => {
+    mockFetchRandomAdvice();
 
-  render(<App />);
-  const adviceElement = await screen.findByText(/^any_random_advice$/);
+    render(<App />);
 
-  expect(adviceElement.cite).toBe("https://api.adviceslip.com/advice/123");
-});
+    await waitFor(() => {
+      const headerElement = screen.queryByRole("heading", { level: 2, name: /^Developed by$/ });
+      expect(headerElement).toBeInTheDocument();
+    });
+  });
 
-test("calls advice slip API for a random advice", async () => {
-  const fetchSpy = mockFetchRandomAdvice();
+  test("renders Felipe Gabriel Arend", async () => {
+    mockFetchRandomAdvice();
 
-  render(<App />);
+    render(<App />);
 
-  await waitFor(() => expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice"));
+    await waitFor(() => {
+      const nameElement = screen.queryByText(/^Felipe Gabriel Arend$/);
+      expect(nameElement).toBeInTheDocument();
+    });
+  });
+
+  test("renders advices powered by", async () => {
+    mockFetchRandomAdvice();
+
+    render(<App />);
+
+    await waitFor(() => {
+      const headerElement = screen.queryByRole("heading", { level: 2, name: /^Advices powered by$/ });
+      expect(headerElement).toBeInTheDocument();
+    });
+  });
+
+  test("renders a link to Advice Slip JSON API", async () => {
+    mockFetchRandomAdvice();
+
+    render(<App />);
+
+    await waitFor(() => {
+      const linkElement = screen.queryByRole("link", { name: /^Advice Slip JSON API$/ });
+      expect(linkElement).toBeInTheDocument();
+    });
+  });
 });
