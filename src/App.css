@@ -39,6 +39,13 @@ main blockquote {
   margin: 4rem 0;
 }
 
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
 footer article {
   padding: 1rem;
 }
