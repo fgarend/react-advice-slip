@@ -95,6 +95,39 @@ describe("App footer", () => {
     });
   });
 
+  test("renders social media", async () => {
+    mockFetchRandomAdvice();
+
+    render(<App />);
+
+    await waitFor(() => {
+      const headerElement = screen.queryByRole("heading", { level: 2, name: /^Social Media$/ });
+      expect(headerElement).toBeInTheDocument();
+    });
+  });
+
+  test("renders a LinkedIn link with href to my profile", async () => {
+    mockFetchRandomAdvice();
+
+    render(<App />);
+
+    await waitFor(() => {
+      const linkElement = screen.queryByRole("link", { name: /^LinkedIn$/ });
+      expect(linkElement.href).toBe("https://www.linkedin.com/in/felipegabrielarend/");
+    });
+  });
+
+  test("renders a GitHub link to my repository", async () => {
+    mockFetchRandomAdvice();
+
+    render(<App />);
+
+    await waitFor(() => {
+      const linkElement = screen.queryByRole("link", { name: /^GitHub$/ });
+      expect(linkElement.href).toBe("https://github.com/FrameForce/react-advice-slip");
+    });
+  });
+
   test("renders advices powered by", async () => {
     mockFetchRandomAdvice();
 
@@ -113,7 +146,7 @@ describe("App footer", () => {
 
     await waitFor(() => {
       const linkElement = screen.queryByRole("link", { name: /^Advice Slip JSON API$/ });
-      expect(linkElement).toBeInTheDocument();
+      expect(linkElement.href).toBe("https://api.adviceslip.com/");
     });
   });
 });
