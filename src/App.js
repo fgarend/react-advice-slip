@@ -23,6 +23,12 @@ function App() {
       <main>
         <blockquote cite={`https://api.adviceslip.com/advice/${slip.id}`}>{slip.advice}</blockquote>
       </main>
+      <footer>
+        <article>
+          <h2>Developed by</h2>
+          <p>Felipe Gabriel Arend</p>
+        </article>
+      </footer>
     </div>
   );
 }

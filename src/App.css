@@ -10,7 +10,8 @@
 }
 
 header,
-main {
+main,
+footer {
   text-align: center;
   width: 50%;
 }
@@ -25,6 +26,7 @@ main {
 header h1 {
   color: #11468f;
   font-size: 3rem;
+  margin: 0;
 }
 
 main blockquote {
@@ -34,5 +36,19 @@ main blockquote {
   font-weight: 700;
 
   padding: 0;
-  margin: 2rem 0;
+  margin: 4rem 0;
+}
+
+footer article {
+  padding: 1rem;
+}
+
+footer h2 {
+  color: #11468f;
+}
+
+footer h2,
+footer p {
+  font-size: 1rem;
+  margin: 0;
 }

@@ -58,3 +58,23 @@ describe("App main", () => {
     await waitFor(() => expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice"));
   });
 });
+
+describe("App footer", () => {
+  test("renders developed by", () => {
+    mockFetchRandomAdvice();
+
+    render(<App />);
+    const headerElement = screen.queryByRole("heading", { level: 2, name: /^Developed by$/ });
+
+    expect(headerElement).toBeInTheDocument();
+  });
+
+  test("renders Felipe Gabriel Arend", () => {
+    mockFetchRandomAdvice();
+
+    render(<App />);
+    const nameElement = screen.queryByText(/^Felipe Gabriel Arend$/);
+
+    expect(nameElement).toBeInTheDocument();
+  });
+});
