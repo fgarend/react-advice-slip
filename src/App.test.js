@@ -77,4 +77,22 @@ describe("App footer", () => {
 
     expect(nameElement).toBeInTheDocument();
   });
+
+  test("renders advices powered by", () => {
+    mockFetchRandomAdvice();
+
+    render(<App />);
+    const headerElement = screen.queryByRole("heading", { level: 2, name: /^Advices powered by$/ });
+
+    expect(headerElement).toBeInTheDocument();
+  });
+
+  test("renders a link to Advice Slip JSON API", () => {
+    mockFetchRandomAdvice();
+
+    render(<App />);
+    const linkElement = screen.queryByRole("link", { name: /^Advice Slip JSON API$/ });
+
+    expect(linkElement).toBeInTheDocument();
+  });
 });

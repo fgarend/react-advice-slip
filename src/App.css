@@ -18,8 +18,13 @@ footer {
 
 @media screen and (max-width: 768px) {
   header,
-  main {
+  main,
+  footer {
     width: 80%;
+  }
+
+  footer {
+    flex-wrap: wrap;
   }
 }
 
@@ -43,7 +48,7 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 1rem;
+  gap: 0 1rem;
 }
 
 footer article {
@@ -58,4 +63,9 @@ footer h2,
 footer p {
   font-size: 1rem;
   margin: 0;
+}
+
+footer a:active,
+footer a:visited {
+  color: #000000;
 }

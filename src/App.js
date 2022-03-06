@@ -28,6 +28,14 @@ function App() {
           <h2>Developed by</h2>
           <p>Felipe Gabriel Arend</p>
         </article>
+        <article>
+          <h2>Advices powered by</h2>
+          <p>
+            <a href="https://api.adviceslip.com/" target="_blank" rel="noreferrer">
+              Advice Slip JSON API
+            </a>
+          </p>
+        </article>
       </footer>
     </div>
   );
