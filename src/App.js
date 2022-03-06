@@ -17,6 +17,9 @@ function App() {
 
   return (
     <div className="App">
+      <header>
+        <h1>Advice Slip</h1>
+      </header>
       <main>
         <blockquote cite={`https://api.adviceslip.com/advice/${slip.id}`}>{slip.advice}</blockquote>
       </main>

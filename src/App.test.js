@@ -20,6 +20,15 @@ function mockFetchRandomAdvice({ advice = "any_random_advice", id = "any_id" } =
   return jest.spyOn(global, "fetch").mockName("fetch").mockResolvedValueOnce(response);
 }
 
+test("renders an advice slip header", () => {
+  mockFetchRandomAdvice();
+
+  render(<App />);
+  const headerElement = screen.queryByRole("heading", { level: 1, name: /^Advice Slip$/ });
+
+  expect(headerElement).toBeInTheDocument();
+});
+
 test("renders a random advice blockquote", async () => {
   mockFetchRandomAdvice({ advice: "a_random_advice" });
 
