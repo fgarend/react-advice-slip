@@ -21,18 +21,29 @@ function mockFetchRandomAdvice({ advice = "any_random_advice", id = "any_id" } =
 }
 
 describe("App header", () => {
-  test("renders an advice slip header", () => {
+  test("renders an advice slip header", async () => {
     mockFetchRandomAdvice();
 
     render(<App />);
-    const headerElement = screen.queryByRole("heading", { level: 1, name: /^Advice Slip$/ });
 
-    expect(headerElement).toBeInTheDocument();
+    await waitFor(() => {
+      const headerElement = screen.queryByRole("heading", { level: 1, name: /^Advice Slip$/ });
+      expect(headerElement).toBeInTheDocument();
+    });
   });
 });
 
 describe("App main", () => {
-  test("renders a random advice blockquote", async () => {
+  test("renders a random advice", async () => {
+    mockFetchRandomAdvice({ advice: "a_random_advice" });
+
+    render(<App />);
+    const adviceElement = await screen.findByText(/^a_random_advice$/);
+
+    expect(adviceElement).toBeInTheDocument();
+  });
+
+  test("renders a random advice as blockquote", async () => {
     mockFetchRandomAdvice({ advice: "a_random_advice" });
 
     render(<App />);
@@ -55,44 +66,54 @@ describe("App main", () => {
 
     render(<App />);
 
-    await waitFor(() => expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice"));
+    await waitFor(() => {
+      expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice");
+    });
   });
 });
 
 describe("App footer", () => {
-  test("renders developed by", () => {
+  test("renders developed by", async () => {
     mockFetchRandomAdvice();
 
     render(<App />);
-    const headerElement = screen.queryByRole("heading", { level: 2, name: /^Developed by$/ });
 
-    expect(headerElement).toBeInTheDocument();
+    await waitFor(() => {
+      const headerElement = screen.queryByRole("heading", { level: 2, name: /^Developed by$/ });
+      expect(headerElement).toBeInTheDocument();
+    });
   });
 
-  test("renders Felipe Gabriel Arend", () => {
+  test("renders Felipe Gabriel Arend", async () => {
     mockFetchRandomAdvice();
 
     render(<App />);
-    const nameElement = screen.queryByText(/^Felipe Gabriel Arend$/);
 
-    expect(nameElement).toBeInTheDocument();
+    await waitFor(() => {
+      const nameElement = screen.queryByText(/^Felipe Gabriel Arend$/);
+      expect(nameElement).toBeInTheDocument();
+    });
   });
 
-  test("renders advices powered by", () => {
+  test("renders advices powered by", async () => {
     mockFetchRandomAdvice();
 
     render(<App />);
-    const headerElement = screen.queryByRole("heading", { level: 2, name: /^Advices powered by$/ });
 
-    expect(headerElement).toBeInTheDocument();
+    await waitFor(() => {
+      const headerElement = screen.queryByRole("heading", { level: 2, name: /^Advices powered by$/ });
+      expect(headerElement).toBeInTheDocument();
+    });
   });
 
-  test("renders a link to Advice Slip JSON API", () => {
+  test("renders a link to Advice Slip JSON API", async () => {
     mockFetchRandomAdvice();
 
     render(<App />);
-    const linkElement = screen.queryByRole("link", { name: /^Advice Slip JSON API$/ });
 
-    expect(linkElement).toBeInTheDocument();
+    await waitFor(() => {
+      const linkElement = screen.queryByRole("link", { name: /^Advice Slip JSON API$/ });
+      expect(linkElement).toBeInTheDocument();
+    });
   });
 });
