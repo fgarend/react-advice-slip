@@ -1153,6 +1153,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/dancing-script/-/dancing-script-4.5.4.tgz#15f21a64ac9e32c57b5baa23c290188b939230bf"
   integrity sha512-7TfUvCYVCGbVhNzpYS1fJzuQPR0HmgRvE4ZWLxji94P078Sp4wGfQ/w1DpSruWw0Zdt75VvAXHfcxM+P1x3nhw==
 
+"@fontsource/nunito@^4.5.4":
+  version "4.5.4"
+  resolved "https://registry.yarnpkg.com/@fontsource/nunito/-/nunito-4.5.4.tgz#9d267c1b7c157014d96f622cebdcc45229690d5c"
+  integrity sha512-pD5tXcQ7SM2oHvZuYOypOD/kfs76HPTBHUGa/7lARkpW6K3LJckycwr8gz9ykmmQACEwFYjcxJt/kM9qaAwnYQ==
+
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.5"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.9.5.tgz#2cbaf9a89460da24b5ca6531b8bbfc23e1df50c7"

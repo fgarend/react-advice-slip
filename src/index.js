@@ -5,6 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "@fontsource/dancing-script/700.css";
+import "@fontsource/nunito/400.css";
+import "@fontsource/nunito/700.css";
 import "./index.css";
 
 ReactDOM.render(
