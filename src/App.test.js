@@ -20,37 +20,41 @@ function mockFetchRandomAdvice({ advice = "any_random_advice", id = "any_id" } =
   return jest.spyOn(global, "fetch").mockName("fetch").mockResolvedValueOnce(response);
 }
 
-test("renders an advice slip header", () => {
-  mockFetchRandomAdvice();
+describe("App header", () => {
+  test("renders an advice slip header", () => {
+    mockFetchRandomAdvice();
 
-  render(<App />);
-  const headerElement = screen.queryByRole("heading", { level: 1, name: /^Advice Slip$/ });
+    render(<App />);
+    const headerElement = screen.queryByRole("heading", { level: 1, name: /^Advice Slip$/ });
 
-  expect(headerElement).toBeInTheDocument();
+    expect(headerElement).toBeInTheDocument();
+  });
 });
 
-test("renders a random advice blockquote", async () => {
-  mockFetchRandomAdvice({ advice: "a_random_advice" });
+describe("App main", () => {
+  test("renders a random advice blockquote", async () => {
+    mockFetchRandomAdvice({ advice: "a_random_advice" });
 
-  render(<App />);
-  const adviceElement = await screen.findByText(/^a_random_advice$/);
+    render(<App />);
+    const adviceElement = await screen.findByText(/^a_random_advice$/);
 
-  expect(adviceElement.nodeName).toBe("BLOCKQUOTE");
-});
+    expect(adviceElement.nodeName).toBe("BLOCKQUOTE");
+  });
 
-test("random advice blockquote has a cite with advice slip endpoint by ID", async () => {
-  mockFetchRandomAdvice({ id: "123" });
+  test("random advice blockquote has a cite with advice slip endpoint by ID", async () => {
+    mockFetchRandomAdvice({ id: "123" });
 
-  render(<App />);
-  const adviceElement = await screen.findByText(/^any_random_advice$/);
+    render(<App />);
+    const adviceElement = await screen.findByText(/^any_random_advice$/);
 
-  expect(adviceElement.cite).toBe("https://api.adviceslip.com/advice/123");
-});
+    expect(adviceElement.cite).toBe("https://api.adviceslip.com/advice/123");
+  });
 
-test("calls advice slip API for a random advice", async () => {
-  const fetchSpy = mockFetchRandomAdvice();
+  test("calls advice slip API for a random advice", async () => {
+    const fetchSpy = mockFetchRandomAdvice();
 
-  render(<App />);
+    render(<App />);
 
-  await waitFor(() => expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice"));
+    await waitFor(() => expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice"));
+  });
 });
