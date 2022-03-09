@@ -14,7 +14,7 @@ main,
 footer {
   text-align: center;
   margin: 1rem 0;
-  width: 70%;
+  width: 50%;
 }
 
 @media screen and (max-width: 768px) {
@@ -36,17 +36,20 @@ footer {
 header h1 {
   color: #11468f;
   font-size: 3rem;
+  text-align: justify;
   margin: 0;
 }
 
 main blockquote {
-  font-family: "Dancing Script", cursive;
+  background-color: #eeeeee;
+  border-radius: 5px;
 
+  font-family: "Dancing Script", cursive;
   font-size: 3rem;
   font-weight: 700;
 
-  padding: 0;
-  margin: 3rem 0;
+  padding: 2rem;
+  margin: 0;
 }
 
 footer {
