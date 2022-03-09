@@ -20,33 +20,13 @@ function mockFetchRandomAdvice({ advice = "any_random_advice", id = "any_id" } =
   return jest.spyOn(global, "fetch").mockName("fetch").mockResolvedValueOnce(response);
 }
 
-describe("App main", () => {
-  test("renders a random advice as blockquote", async () => {
-    mockFetchRandomAdvice({ advice: "a_random_advice" });
+test("calls advice slip API for a random advice", async () => {
+  const fetchSpy = mockFetchRandomAdvice();
 
-    render(<App />);
-    const adviceElement = await screen.findByText(/^a_random_advice$/);
+  render(<App />);
 
-    expect(adviceElement.nodeName).toBe("BLOCKQUOTE");
-  });
-
-  test("random advice blockquote has a cite with advice slip endpoint by ID", async () => {
-    mockFetchRandomAdvice({ id: "123" });
-
-    render(<App />);
-    const adviceElement = await screen.findByText(/^any_random_advice$/);
-
-    expect(adviceElement.cite).toBe("https://api.adviceslip.com/advice/123");
-  });
-
-  test("calls advice slip API for a random advice", async () => {
-    const fetchSpy = mockFetchRandomAdvice();
-
-    render(<App />);
-
-    await waitFor(() => {
-      expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice");
-    });
+  await waitFor(() => {
+    expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice");
   });
 });
 
