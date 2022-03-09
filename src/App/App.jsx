@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import Header from "../Header";
+
 import "./App.css";
 
 function App() {
@@ -17,9 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>Advice Slip</h1>
-      </header>
+      <Header />
       <main>
         <blockquote cite={`https://api.adviceslip.com/advice/${slip.id}`}>{slip.advice}</blockquote>
       </main>
