@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 
 import App from "./App";
 
@@ -27,84 +27,5 @@ test("calls advice slip API for a random advice", async () => {
 
   await waitFor(() => {
     expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice");
-  });
-});
-
-describe("App footer", () => {
-  test("renders developed by", async () => {
-    mockFetchRandomAdvice();
-
-    render(<App />);
-
-    await waitFor(() => {
-      const headerElement = screen.queryByRole("heading", { level: 2, name: /^Developed by$/ });
-      expect(headerElement).toBeInTheDocument();
-    });
-  });
-
-  test("renders Felipe Gabriel Arend", async () => {
-    mockFetchRandomAdvice();
-
-    render(<App />);
-
-    await waitFor(() => {
-      const nameElement = screen.queryByText(/^Felipe Gabriel Arend$/);
-      expect(nameElement).toBeInTheDocument();
-    });
-  });
-
-  test("renders social media", async () => {
-    mockFetchRandomAdvice();
-
-    render(<App />);
-
-    await waitFor(() => {
-      const headerElement = screen.queryByRole("heading", { level: 2, name: /^Social Media$/ });
-      expect(headerElement).toBeInTheDocument();
-    });
-  });
-
-  test("renders a LinkedIn link with href to my profile", async () => {
-    mockFetchRandomAdvice();
-
-    render(<App />);
-
-    await waitFor(() => {
-      const linkElement = screen.queryByRole("link", { name: /^LinkedIn$/ });
-      expect(linkElement.href).toBe("https://www.linkedin.com/in/felipegabrielarend/");
-    });
-  });
-
-  test("renders a GitHub link to my repository", async () => {
-    mockFetchRandomAdvice();
-
-    render(<App />);
-
-    await waitFor(() => {
-      const linkElement = screen.queryByRole("link", { name: /^GitHub$/ });
-      expect(linkElement.href).toBe("https://github.com/FrameForce/react-advice-slip");
-    });
-  });
-
-  test("renders advices powered by", async () => {
-    mockFetchRandomAdvice();
-
-    render(<App />);
-
-    await waitFor(() => {
-      const headerElement = screen.queryByRole("heading", { level: 2, name: /^Advices powered by$/ });
-      expect(headerElement).toBeInTheDocument();
-    });
-  });
-
-  test("renders a link to Advice Slip JSON API", async () => {
-    mockFetchRandomAdvice();
-
-    render(<App />);
-
-    await waitFor(() => {
-      const linkElement = screen.queryByRole("link", { name: /^Advice Slip JSON API$/ });
-      expect(linkElement.href).toBe("https://api.adviceslip.com/");
-    });
   });
 });
