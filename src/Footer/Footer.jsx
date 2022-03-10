@@ -3,11 +3,11 @@ import React from "react";
 function Footer() {
   return (
     <footer>
-      <article>
+      <section>
         <h2>Developed by</h2>
         <p>Felipe Gabriel Arend</p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h2>Social Media</h2>
         <p>
           <a href="https://www.linkedin.com/in/felipegabrielarend/" target="_blank" rel="noreferrer">
@@ -19,15 +19,15 @@ function Footer() {
             GitHub
           </a>
         </p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h2>Advices powered by</h2>
         <p>
           <a href="https://api.adviceslip.com/" target="_blank" rel="noreferrer">
             Advice Slip JSON API
           </a>
         </p>
-      </article>
+      </section>
     </footer>
   );
 }
