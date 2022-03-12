@@ -43,7 +43,6 @@ describe("Footer external link", () => {
     expect(link).toHaveTextContent("");
   });
 
-
   test("renders a link without href when does not provided", async () => {
     render(<ExternalLink>any_content</ExternalLink>);
 
