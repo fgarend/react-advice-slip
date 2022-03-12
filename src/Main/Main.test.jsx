@@ -10,7 +10,7 @@ function makeFakeSlip() {
 }
 
 describe("App main", () => {
-  test("renders a advice", () => {
+  test("renders an advice", () => {
     const slip = makeFakeSlip();
 
     render(<Main slip={slip} />);
@@ -19,21 +19,12 @@ describe("App main", () => {
     expect(advice).toBeInTheDocument();
   });
 
-  test("renders a advice as blockquote", () => {
+  test("renders an advice with cite attribute with url for advice slip by ID endpoint", () => {
     const slip = makeFakeSlip();
 
     render(<Main slip={slip} />);
     const advice = screen.getByText(/^any_advice$/);
 
-    expect(advice.nodeName).toBe("BLOCKQUOTE");
-  });
-
-  test("random advice blockquote has a cite with advice slip endpoint by ID", () => {
-    const slip = makeFakeSlip();
-
-    render(<Main slip={slip} />);
-    const advice = screen.getByText(/^any_advice$/);
-
-    expect(advice.cite).toBe("https://api.adviceslip.com/advice/any_id");
+    expect(advice).toHaveAttribute("cite", "https://api.adviceslip.com/advice/any_id");
   });
 });
