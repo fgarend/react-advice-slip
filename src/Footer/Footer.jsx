@@ -1,14 +1,14 @@
 import React from "react";
 
+import Section from "./Section";
+
 function Footer() {
   return (
     <footer>
-      <section>
-        <h2>Developed by</h2>
+      <Section title="Developed by">
         <p>Felipe Gabriel Arend</p>
-      </section>
-      <section>
-        <h2>Social Media</h2>
+      </Section>
+      <Section title="Social Media">
         <p>
           <a href="https://www.linkedin.com/in/felipegabrielarend/" target="_blank" rel="noreferrer">
             LinkedIn
@@ -19,15 +19,14 @@ function Footer() {
             GitHub
           </a>
         </p>
-      </section>
-      <section>
-        <h2>Advices powered by</h2>
+      </Section>
+      <Section title="Advices powered by">
         <p>
           <a href="https://api.adviceslip.com/" target="_blank" rel="noreferrer">
             Advice Slip JSON API
           </a>
         </p>
-      </section>
+      </Section>
     </footer>
   );
 }

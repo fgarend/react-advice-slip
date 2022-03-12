@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import Footer from "./Footer";
 
 describe("App footer", () => {
-  test("renders developed by", async () => {
+  test("renders a 'developed by' heanding", async () => {
     render(<Footer />);
 
     const heading = screen.queryByRole("heading", { level: 2, name: /^Developed by$/ });
@@ -11,7 +11,7 @@ describe("App footer", () => {
     expect(heading).toBeInTheDocument();
   });
 
-  test("renders Felipe Gabriel Arend", async () => {
+  test("renders 'Felipe Gabriel Arend' text", async () => {
     render(<Footer />);
 
     const name = screen.queryByText(/^Felipe Gabriel Arend$/);
@@ -19,7 +19,7 @@ describe("App footer", () => {
     expect(name).toBeInTheDocument();
   });
 
-  test("renders social media", async () => {
+  test("renders a 'social media' heading", async () => {
     render(<Footer />);
 
     const heading = screen.queryByRole("heading", { level: 2, name: /^Social Media$/ });
@@ -43,7 +43,7 @@ describe("App footer", () => {
     expect(link).toHaveAttribute("href", "https://github.com/FrameForce/react-advice-slip");
   });
 
-  test("renders advices powered by", async () => {
+  test("renders 'advices powered by' heading", async () => {
     render(<Footer />);
 
     const heading = screen.queryByRole("heading", { level: 2, name: /^Advices powered by$/ });
