@@ -83,9 +83,3 @@ footer p {
 footer a {
   display: block;
 }
-
-footer a,
-footer a:active,
-footer a:visited {
-  color: #000000;
-}
