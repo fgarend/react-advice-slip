@@ -19,10 +19,10 @@ describe("App footer", () => {
     expect(link).toHaveAttribute("href", "https://www.linkedin.com/in/felipegabrielarend/");
   });
 
-  test("renders a 'social media' heading", async () => {
+  test("renders a 'source code at' heading", async () => {
     render(<Footer />);
 
-    const heading = screen.queryByRole("heading", { level: 2, name: /^Social Media$/ });
+    const heading = screen.queryByRole("heading", { level: 2, name: /^Source code at$/ });
 
     expect(heading).toBeInTheDocument();
   });

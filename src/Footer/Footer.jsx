@@ -10,7 +10,7 @@ function Footer() {
         <ExternalLink href="https://www.linkedin.com/in/felipegabrielarend/">Felipe Gabriel Arend</ExternalLink>
       </Section>
 
-      <Section title="Social Media">
+      <Section title="Source code at">
         <ExternalLink href="https://github.com/FrameForce/react-advice-slip">GitHub</ExternalLink>
       </Section>
     </footer>
