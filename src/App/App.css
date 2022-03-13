@@ -40,6 +40,10 @@ header h1 {
   margin: 0;
 }
 
+main figure {
+  margin: 0;
+}
+
 main blockquote {
   background-color: #eeeeee;
   border-radius: 5px;
