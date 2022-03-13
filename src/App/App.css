@@ -40,8 +40,15 @@ header h1 {
   margin: 0;
 }
 
+main figure {
+  margin: 0;
+}
+
 main blockquote {
-  background-color: #eeeeee;
+  background-color: #fafafa;
+  border-color: #eeeeee;
+  border-style: solid;
+  border-width: 1px 4px 4px 1px;
   border-radius: 5px;
 
   font-family: "Dancing Script", cursive;
@@ -52,6 +59,13 @@ main blockquote {
   margin: 0;
 }
 
+main figcaption {
+  padding: 10px;
+  text-align: right;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
 footer {
   display: flex;
   flex-direction: row;
@@ -59,26 +73,10 @@ footer {
   gap: 0 1rem;
 }
 
-footer section {
-  padding: 1rem;
-}
-
-footer h2 {
+.footer-info {
   color: #11468f;
-}
-
-footer h2,
-footer p {
   font-size: 1rem;
+  font-weight: bold;
   margin: 0;
-}
-
-footer a {
-  display: block;
-}
-
-footer a,
-footer a:active,
-footer a:visited {
-  color: #000000;
+  padding: 1rem;
 }
