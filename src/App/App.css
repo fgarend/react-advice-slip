@@ -45,7 +45,10 @@ main figure {
 }
 
 main blockquote {
-  background-color: #eeeeee;
+  background-color: #fafafa;
+  border-color: #eeeeee;
+  border-style: solid;
+  border-width: 1px 4px 4px 1px;
   border-radius: 5px;
 
   font-family: "Dancing Script", cursive;
