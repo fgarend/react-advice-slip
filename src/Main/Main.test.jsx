@@ -27,4 +27,31 @@ describe("App main", () => {
 
     expect(advice).toHaveAttribute("cite", "https://api.adviceslip.com/advice/any_id");
   });
+
+  test("renders 'advices powered by Advice Slip JSON API'", async () => {
+    const slip = makeFakeSlip();
+
+    render(<Main slip={slip} />);
+    const caption = screen.queryByText(/advice powered by/);
+
+    expect(caption).toHaveTextContent(/^advice powered by Advice Slip JSON API$/);
+  });
+
+  test("renders a link with 'Advice Slip JSON API' text content", async () => {
+    const slip = makeFakeSlip();
+
+    render(<Main slip={slip} />);
+    const link = screen.queryByRole("link");
+
+    expect(link).toHaveTextContent(/^Advice Slip JSON API$/);
+  });
+
+  test("renders a link to Advice Slip JSON API docs", async () => {
+    const slip = makeFakeSlip();
+
+    render(<Main slip={slip} />);
+    const link = screen.queryByRole("link");
+
+    expect(link).toHaveAttribute("href", "https://api.adviceslip.com/");
+  });
 });

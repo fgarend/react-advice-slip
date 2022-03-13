@@ -14,10 +14,6 @@ function Footer() {
         <ExternalLink href="https://www.linkedin.com/in/felipegabrielarend/">LinkedIn</ExternalLink>
         <ExternalLink href="https://github.com/FrameForce/react-advice-slip">GitHub</ExternalLink>
       </Section>
-
-      <Section title="Advices powered by">
-        <ExternalLink href="https://api.adviceslip.com/">Advice Slip JSON API</ExternalLink>
-      </Section>
     </footer>
   );
 }

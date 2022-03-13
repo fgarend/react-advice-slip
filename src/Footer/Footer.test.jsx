@@ -42,20 +42,4 @@ describe("App footer", () => {
 
     expect(link).toHaveAttribute("href", "https://github.com/FrameForce/react-advice-slip");
   });
-
-  test("renders 'advices powered by' heading", async () => {
-    render(<Footer />);
-
-    const heading = screen.queryByRole("heading", { level: 2, name: /^Advices powered by$/ });
-
-    expect(heading).toBeInTheDocument();
-  });
-
-  test("renders a link to Advice Slip JSON API", async () => {
-    render(<Footer />);
-
-    const link = screen.queryByRole("link", { name: /^Advice Slip JSON API$/ });
-
-    expect(link).toHaveAttribute("href", "https://api.adviceslip.com/");
-  });
 });
