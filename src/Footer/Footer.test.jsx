@@ -11,12 +11,12 @@ describe("App footer", () => {
     expect(heading).toBeInTheDocument();
   });
 
-  test("renders 'Felipe Gabriel Arend' text", async () => {
+  test("renders 'Felipe Gabriel Arend' lint to LinkedIn", async () => {
     render(<Footer />);
 
-    const name = screen.queryByText(/^Felipe Gabriel Arend$/);
+    const link = screen.queryByRole("link", { name: /^Felipe Gabriel Arend$/ });
 
-    expect(name).toBeInTheDocument();
+    expect(link).toHaveAttribute("href", "https://www.linkedin.com/in/felipegabrielarend/");
   });
 
   test("renders a 'social media' heading", async () => {
@@ -25,14 +25,6 @@ describe("App footer", () => {
     const heading = screen.queryByRole("heading", { level: 2, name: /^Social Media$/ });
 
     expect(heading).toBeInTheDocument();
-  });
-
-  test("renders a LinkedIn link with href to my profile", async () => {
-    render(<Footer />);
-
-    const link = screen.queryByRole("link", { name: /^LinkedIn$/ });
-
-    expect(link).toHaveAttribute("href", "https://www.linkedin.com/in/felipegabrielarend/");
   });
 
   test("renders a GitHub link to my repository", async () => {

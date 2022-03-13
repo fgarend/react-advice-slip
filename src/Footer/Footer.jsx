@@ -7,11 +7,10 @@ function Footer() {
   return (
     <footer>
       <Section title="Developed by">
-        <p>Felipe Gabriel Arend</p>
+        <ExternalLink href="https://www.linkedin.com/in/felipegabrielarend/">Felipe Gabriel Arend</ExternalLink>
       </Section>
 
       <Section title="Social Media">
-        <ExternalLink href="https://www.linkedin.com/in/felipegabrielarend/">LinkedIn</ExternalLink>
         <ExternalLink href="https://github.com/FrameForce/react-advice-slip">GitHub</ExternalLink>
       </Section>
     </footer>
