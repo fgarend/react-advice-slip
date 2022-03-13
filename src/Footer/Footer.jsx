@@ -1,6 +1,6 @@
 import React from "react";
 
-import ExternalLink from "./ExternalLink";
+import ExternalLink from "../ExternalLink";
 import Section from "./Section";
 
 function Footer() {
