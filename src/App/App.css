@@ -73,20 +73,10 @@ footer {
   gap: 0 1rem;
 }
 
-footer section {
-  padding: 1rem;
-}
-
-footer h2 {
+.footer-info {
   color: #11468f;
-}
-
-footer h2,
-footer p {
   font-size: 1rem;
+  font-weight: bold;
   margin: 0;
-}
-
-footer a {
-  display: block;
+  padding: 1rem;
 }

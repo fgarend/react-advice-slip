@@ -3,15 +3,15 @@ import { render, screen } from "@testing-library/react";
 import Footer from "./Footer";
 
 describe("App footer", () => {
-  test("renders a 'developed by' heanding", async () => {
+  test("renders 'developed by Felipe Gabriel Arend' text", async () => {
     render(<Footer />);
 
-    const heading = screen.queryByRole("heading", { level: 2, name: /^Developed by$/ });
+    const text = screen.queryByText(/^Developed by$/);
 
-    expect(heading).toBeInTheDocument();
+    expect(text).toHaveTextContent(/^Developed by Felipe Gabriel Arend$/);
   });
 
-  test("renders 'Felipe Gabriel Arend' lint to LinkedIn", async () => {
+  test("renders 'Felipe Gabriel Arend' as a link to LinkedIn", async () => {
     render(<Footer />);
 
     const link = screen.queryByRole("link", { name: /^Felipe Gabriel Arend$/ });
@@ -19,15 +19,15 @@ describe("App footer", () => {
     expect(link).toHaveAttribute("href", "https://www.linkedin.com/in/felipegabrielarend/");
   });
 
-  test("renders a 'source code at' heading", async () => {
+  test("renders a 'source code at GitHub' text", async () => {
     render(<Footer />);
 
-    const heading = screen.queryByRole("heading", { level: 2, name: /^Source code at$/ });
+    const text = screen.queryByText(/^Source code at$/);
 
-    expect(heading).toBeInTheDocument();
+    expect(text).toHaveTextContent(/^Source code at GitHub$/);
   });
 
-  test("renders a GitHub link to my repository", async () => {
+  test("renders 'GitHub' as a link to repository", async () => {
     render(<Footer />);
 
     const link = screen.queryByRole("link", { name: /^GitHub$/ });

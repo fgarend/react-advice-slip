@@ -1,18 +1,18 @@
 import React from "react";
 
 import ExternalLink from "../ExternalLink";
-import Section from "./Section";
 
 function Footer() {
   return (
     <footer>
-      <Section title="Developed by">
+      <div className="footer-info">
+        Developed by{" "}
         <ExternalLink href="https://www.linkedin.com/in/felipegabrielarend/">Felipe Gabriel Arend</ExternalLink>
-      </Section>
+      </div>
 
-      <Section title="Source code at">
-        <ExternalLink href="https://github.com/FrameForce/react-advice-slip">GitHub</ExternalLink>
-      </Section>
+      <div className="footer-info">
+        Source code at <ExternalLink href="https://github.com/FrameForce/react-advice-slip">GitHub</ExternalLink>
+      </div>
     </footer>
   );
 }
