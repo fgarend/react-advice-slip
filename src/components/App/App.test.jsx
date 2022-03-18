@@ -1,31 +1,27 @@
-import { render, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import App from "./App";
 
-beforeEach(() => {
-  jest.clearAllMocks();
-});
+jest.mock("../Footer", () => () => <div data-testid="footer" />);
+jest.mock("../Header", () => () => <div data-testid="header" />);
+jest.mock("../Main", () => () => <div data-testid="main" />);
 
-function mockFetchRandomAdvice({ advice = "any_random_advice", id = "any_id" } = {}) {
-  const jsonResponse = {
-    slip: {
-      id,
-      advice,
-    },
-  };
-  const response = {
-    json: jest.fn().mockName("response.json()").mockResolvedValueOnce(jsonResponse),
-  };
+describe("App", () => {
+  test("renders header", async () => {
+    render(<App />);
+    const header = screen.queryByTestId("header");
+    expect(header).toBeInTheDocument();
+  });
 
-  return jest.spyOn(global, "fetch").mockName("fetch").mockResolvedValueOnce(response);
-}
+  test("renders main", async () => {
+    render(<App />);
+    const main = screen.queryByTestId("main");
+    expect(main).toBeInTheDocument();
+  });
 
-test("calls advice slip API for a random advice", async () => {
-  const fetchSpy = mockFetchRandomAdvice();
-
-  render(<App />);
-
-  await waitFor(() => {
-    expect(fetchSpy).toHaveBeenCalledWith("https://api.adviceslip.com/advice");
+  test("renders footer", async () => {
+    render(<App />);
+    const footer = screen.queryByTestId("footer");
+    expect(footer).toBeInTheDocument();
   });
 });

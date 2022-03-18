@@ -1,17 +1,16 @@
+import React from "react";
+
 import Footer from "../Footer";
 import Header from "../Header";
-import useAdviceSlip from "../../hooks/useAdviceSlip";
 import Main from "../Main";
 
 import "./App.css";
 
 function App() {
-  const slip = useAdviceSlip();
-
   return (
     <div className="App">
       <Header />
-      <Main slip={slip} />
+      <Main />
       <Footer />
     </div>
   );
