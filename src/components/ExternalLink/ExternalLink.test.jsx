@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import ExternalLink from "./ExternalLink";
 
-describe("Footer external link", () => {
+describe("External link", () => {
   test("renders a link with href", async () => {
     render(<ExternalLink href="https://any-external-link.com">any_content</ExternalLink>);
 
