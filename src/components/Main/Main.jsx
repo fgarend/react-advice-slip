@@ -1,8 +1,11 @@
 import React from "react";
 
+import useAdviceSlip from "../../hooks/useAdviceSlip";
 import ExternalLink from "../ExternalLink";
 
-function Main({ slip }) {
+function Main() {
+  const slip = useAdviceSlip();
+
   return (
     <main>
       <figure>
